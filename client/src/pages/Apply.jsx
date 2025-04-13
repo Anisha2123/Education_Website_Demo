@@ -9,7 +9,8 @@ const Apply = () => {
   const [status, setStatus] = useState('');
   const [courses, setCourses] = useState([]);
 
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
 
 
   useEffect(() => {

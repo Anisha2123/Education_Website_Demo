@@ -8,6 +8,9 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('');
 
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -12,6 +12,9 @@ const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
+
   const sampleCourses = [
     {
       title: 'Full Stack Web Development',

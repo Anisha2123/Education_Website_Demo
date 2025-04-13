@@ -7,6 +7,8 @@ import '../App.css'; // External CSS file
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [form, setForm] = useState({ name: '', message: '', designation: '' });
+  
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const getTestimonials = async () => {
     const res = await axios.get(`${backendUrl}/api/testimonials`);

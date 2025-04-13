@@ -429,7 +429,7 @@ body {
   background: #f9fafb;
   border-radius: 12px;
   animation: fadeIn 0.8s ease;
-  border:1px solid red;
+  /* border:1px solid red; */
   width:100%;
 }
 .testimonials-container  h2{
