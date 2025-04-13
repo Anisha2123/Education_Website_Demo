@@ -9,7 +9,7 @@ const Testimonials = () => {
   const [form, setForm] = useState({ name: '', message: '', designation: '' });
 
   const getTestimonials = async () => {
-    const res = await axios.get('http://localhost:5000/api/testimonials');
+    const res = await axios.get(`${backendUrl}/api/testimonials`);
     setTestimonials(res.data);
   };
 
@@ -18,13 +18,13 @@ const Testimonials = () => {
   }, []);
 
   const addTestimonial = async () => {
-    await axios.post('http://localhost:5000/api/testimonials', form);
+    await axios.post(`${backendUrl}/api/testimonials`, form);
     getTestimonials();
     setForm({ name: '', message: '', designation: '' });
   };
 
   const deleteTestimonial = async (id) => {
-    await axios.delete(`http://localhost:5000/api/testimonials/${id}`);
+    await axios.delete(`${backendUrl}/api/testimonials/${id}`);
     getTestimonials();
   };
 

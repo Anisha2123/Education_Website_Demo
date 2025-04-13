@@ -9,8 +9,11 @@ const Apply = () => {
   const [status, setStatus] = useState('');
   const [courses, setCourses] = useState([]);
 
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/courses')
+    axios.get(`${backendUrl}/api/courses`)
       .then((res) => {
         console.log("Fetched courses:", res.data); // ✅ Add this
         setCourses(res.data);
@@ -25,7 +28,7 @@ const Apply = () => {
     console.log("handsubmit hit ");
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/apply', form);
+      await axios.post(`${backendUrl}/api/apply`, form);
       setStatus('✅ Application submitted successfully!');
       setForm({ name: '', email: '', phone: '', course: '' });
     } catch {

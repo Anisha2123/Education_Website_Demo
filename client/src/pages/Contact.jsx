@@ -11,7 +11,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/contact', formData);
+      await axios.post(`${backendUrl}/api/contact`, formData);
       setStatus('Message sent successfully!');
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (error) {

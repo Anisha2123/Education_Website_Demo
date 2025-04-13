@@ -37,8 +37,8 @@ const Courses = () => {
     const fetchCourses = async () => {
       try {
         const url = category
-          ? `http://localhost:5000/api/courses/filter?category=${category}`
-          : `http://localhost:5000/api/courses`;
+          ? `${backendUrl}/api/courses/filter?category=${category}`
+          : `${backendUrl}/api/courses`;
         const res = await axios.get(url);
         setCourses(res.data.length > 0 ? res.data : sampleCourses);
       } catch (error) {
