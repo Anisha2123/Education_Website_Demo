@@ -33,139 +33,158 @@ button{
   background-color: #f9fafb;
 }
 
-/* Home.css ========================================================*/
-.home-container {
-  background: linear-gradient(to right, #f0f4ff, #e6f7ff);
-  padding: 4rem 2rem;
-  min-height: 100vh;
+/* Home.css========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.home-landing {
+  /* min-height: 90vh; */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  /* border:10px solid red; */
+  /* padding: 3rem 1rem; */
+  padding-top: 3rem;
 }
 
-.home-content {
+.home-card {
   display: flex;
-  flex-direction: row;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 2rem 3rem;
   max-width: 1200px;
   width: 100%;
-  gap: 4rem;
-  align-items: center;
-  justify-content: space-between;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease;
 }
 
-.left-section {
-  flex: 1;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.right-section {
+.home-left {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.hero-image {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home-heading {
+.landing-image {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.title {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #1e1e2f;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #475569;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  max-width: 500px;
 }
 
 .highlight {
   color: #6366f1;
 }
 
-.home-description {
-  font-size: 1.1rem;
-  color: #444;
-  max-width: 500px;
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 2rem;
+  border:1px
 }
 
-.home-buttons {
+.features span {
+  background: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  color: #334155;
+  width: 14rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cta-buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.home-button {
+.btn {
   padding: 0.8rem 1.6rem;
-  border-radius: 10px;
-  font-weight: 500;
   font-size: 1rem;
-  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: none;
 }
 
-.join-button {
+.btn-primary {
   background-color: #4f46e5;
   color: white;
 }
 
-.join-button:hover {
+.btn-primary:hover {
   background-color: #4338ca;
   transform: translateY(-2px);
 }
 
-.train-button {
+.btn-secondary {
   background-color: #10b981;
   color: white;
 }
 
-.train-button:hover {
+.btn-secondary:hover {
   background-color: #059669;
   transform: translateY(-2px);
 }
 
-/* Animations */
-@keyframes slideInLeft {
-  0% { opacity: 0; transform: translateX(-30px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .home-content {
+  .home-card {
     flex-direction: column;
     text-align: center;
+    padding: 2rem;
   }
 
-  .right-section {
-    margin-top: 2rem;
-  }
-
-  .home-buttons {
+  .features {
     justify-content: center;
-    flex-direction: column;
   }
 
-  .home-button {
-    width: 100%;
-    max-width: 220px;
+  .cta-buttons {
+    justify-content: center;
   }
 }
+
 
 /* ========================NavBar===================== */
 
@@ -321,11 +340,13 @@ button{
 
 .contact-box {
   background: white;
-  padding: 2.5rem 2rem;
+  padding: 1rem 2rem;
+  /* padding-bottom: 1rem; */
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 500px;
+  /* border:1px solid red; */
 }
 
 .contact-heading {
@@ -398,12 +419,21 @@ button{
 /* Testimonials.css ============================================*/
 
 .testimonials-container {
-  max-width: 700px;
+  /* max-width: 700px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0rem auto;
   padding: 4rem 2rem;
   background: #f9fafb;
   border-radius: 12px;
   animation: fadeIn 0.8s ease;
+  border:1px solid red;
+  width:100%;
+}
+.testimonials-container  h2{
+  margin:2rem;
 }
 
 .testimonials-title {
@@ -416,17 +446,35 @@ button{
 
 .testimonial-list {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
   margin-bottom: 2rem;
+  /* border:1px solid red; */
 }
 
-.testimonial-card {
+
+/* .testimonial-card {
   background: white;
   border-radius: 8px;
   padding: 1.25rem 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
+  width: 22rem;
+  height:12rem;
+} */
+.testimonial-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-left: 5px solid #4f46e5;
+  animation: cardFadeIn 0.6s ease;
+  width: 30rem ;
 }
 
 .testimonial-card:hover {
@@ -459,6 +507,7 @@ button{
 }
 
 .testimonial-form {
+  width:30rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -521,75 +570,160 @@ button{
     transform: translateY(0);
   }
 }
+
 /* About.css============================================== */
 
 .about-container {
-  max-width: 850px;
+  max-width: 1000px;
   margin: 4rem auto;
   padding: 2rem;
-  background-color: #f9fafb;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-  animation: fadeIn 0.7s ease-in-out;
+  background: linear-gradient(to bottom right, #f0f4ff, #fefefe);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .about-title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 800;
   text-align: center;
   color: #4f46e5;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.about-title::after {
+  content: "✨";
+  font-size: 1.5rem;
+  position: absolute;
+  top: -10px;
+  right: 40%;
 }
 
 .about-section {
+  background: #ffffff;
+  border-left: 8px solid #4f46e5;
+  padding: 2rem;
   margin-bottom: 2rem;
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.08);
+  transition: all 0.3s ease;
+  animation: slideInUp 0.7s ease forwards;
+  opacity: 0;
 }
 
 .about-section:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
 }
 
 .about-subtitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.about-subtitle::before {
+  content: "💡";
+  margin-right: 0.5rem;
 }
 
 .about-text {
-  color: #4b5563;
-  line-height: 1.7;
-  font-size: 1rem;
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .about-list {
-  list-style-type: disc;
-  padding-left: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
   color: #4b5563;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-top: 0.5rem;
 }
 
 .about-list li {
-  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
+.about-list li::before {
+  content: "🌱";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+}
+
+.team-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 3rem;
+  animation: fadeInUp 0.9s ease;
+  
+}
+
+.team-image {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  min-height: 250px; /* 👈 Prevents disappearing effect */
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.team-image:hover {
+  transform: scale(1.03);
+}
+
+.italic {
+  font-style: italic;
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 1rem;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Existing styles stay the same, add below at the end */
 
 .team-section {
@@ -597,6 +731,7 @@ button{
   flex-direction: column;
   align-items: center;
   background: #fff;
+  animation: fadeInUp 0.8s ease forwards; /* 👈 Add "forwards" */
 }
 
 .team-image {
@@ -665,7 +800,7 @@ button{
 
 .apply-container {
   max-width: 600px;
-  margin: 4rem auto;
+  margin: 3rem auto;
   padding: 2rem;
   background: #fff;
   border-radius: 12px;

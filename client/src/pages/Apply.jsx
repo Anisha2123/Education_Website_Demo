@@ -10,10 +10,19 @@ const Apply = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/courses').then((res) => setCourses(res.data));
+    axios.get('http://localhost:5000/api/courses')
+      .then((res) => {
+        console.log("Fetched courses:", res.data); // ✅ Add this
+        setCourses(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching courses:", err); // ✅ Add this
+      });
   }, []);
+  
 
   const handleSubmit = async (e) => {
+    console.log("handsubmit hit ");
     e.preventDefault();
     try {
       await axios.post('http://localhost:5000/api/apply', form);
@@ -62,7 +71,7 @@ const Apply = () => {
           ))}
         </select>
 
-        <button type="submit" className="apply-btn">Submit Application</button>
+        <button type="submit" className="apply-btn" >Submit Application</button>
         {status && <p className="apply-status">{status}</p>}
       </form>
     </div>

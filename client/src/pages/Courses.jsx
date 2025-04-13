@@ -52,7 +52,7 @@ const Courses = () => {
     <div className="courses-container">
       <h2 className="courses-title">Courses Offered</h2>
 
-      <div className="category-select-wrapper">
+      {/* <div className="category-select-wrapper">
         <select
           onChange={(e) => setCategory(e.target.value)}
           className="category-select"
@@ -61,7 +61,7 @@ const Courses = () => {
           <option value="IT">IT</option>
           <option value="Soft Skills">Soft Skills</option>
         </select>
-      </div>
+      </div> */}
 
       <div className="courses-grid">
         {courses.map((course, i) => (

@@ -30,18 +30,6 @@ const Testimonials = () => {
 
   return (
     <div className="testimonials-container">
-      <h2 className="testimonials-title">Testimonials</h2>
-
-      <div className="testimonial-list">
-        {testimonials.map((t, i) => (
-          <div key={i} className="testimonial-card">
-            <p className="testimonial-message">“{t.message}”</p>
-            <p className="testimonial-meta">— {t.name}, {t.designation}</p>
-            <button onClick={() => deleteTestimonial(t._id)} className="delete-btn">Delete</button>
-          </div>
-        ))}
-      </div>
-
       <div className="testimonial-form">
         <h3 className="form-title">Add a Testimonial</h3>
         <input
@@ -60,6 +48,16 @@ const Testimonials = () => {
           onChange={(e) => setForm({ ...form, message: e.target.value })}
         />
         <button onClick={addTestimonial}>Add</button>
+      </div>
+      <h2 className="testimonials-title">Testimonials</h2>
+      <div className="testimonial-list">
+        {testimonials.map((t, i) => (
+          <div key={i} className="testimonial-card">
+            <p className="testimonial-message">“{t.message}”</p>
+            <p className="testimonial-meta">— {t.name}, {t.designation}</p>
+            <button onClick={() => deleteTestimonial(t._id)} className="delete-btn">Delete</button>
+          </div>
+        ))}
       </div>
     </div>
   );
